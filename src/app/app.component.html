@@ -1,11 +1,18 @@
-<div class="max-w-2xl container mx-auto pt-5 mt-[50px]">
+<div class="container max-w-2xl mx-auto pt-5 mt-[50px]">
+
+
 
   <h1 class="font-bold mb-2 text-center text-2xl">
     {{ title | titlecase}}
   </h1>
 
+  <input type="text" class="mb-2 border py-2 px-4 w-full" placeholder="Filter products...">
+
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
-  <app-product *ngFor="let product of products$ | async; let i = index" [product]="product">
-  </app-product>
+  <div class="grid lg:grid-cols-3 gap-3 p-4 sm:grid-cols-1 md:grid-cols-2">
+    <app-product *ngFor="let product of products$ | async; let i = index" [product]="product">
+    </app-product>
+  </div>
+
 </div>
