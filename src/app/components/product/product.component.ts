@@ -8,7 +8,7 @@ import { CurrencyPipe } from '@angular/common';
   standalone: true,
   imports: [CommonModule, CurrencyPipe],
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
   @Input()
