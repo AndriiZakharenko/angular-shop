@@ -1,1 +1,3 @@
-# angular-shop
+# Angular Shop
+
+in progress...
