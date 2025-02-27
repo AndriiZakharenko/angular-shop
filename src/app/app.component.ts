@@ -1,9 +1,10 @@
-import { Component, importProvidersFrom, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './components/product/product.component';
-import { IProduct } from './models/products';
 import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { IProduct } from './models/products';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'angular shop';
-  products: IProduct[] = [];
+  products$: Observable<IProduct[]> | undefined;
+  loading = false;
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productsService.getAll().subscribe((products) => {
-      this.products = products;
-    });
+    this.loading = true;
+    this.products$ = this.productsService
+      .getAll()
+      .pipe(tap(() => this.loading = false));
   }
 }
