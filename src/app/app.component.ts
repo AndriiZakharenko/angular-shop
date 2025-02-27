@@ -5,11 +5,12 @@ import { ProductsService } from './services/products.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { IProduct } from './models/products';
+import { GlobalErrorComponent } from "./components/global-error/global-error.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, ProductComponent, HttpClientModule],
+  imports: [CommonModule, ProductComponent, HttpClientModule, GlobalErrorComponent],
   providers: [ProductsService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
