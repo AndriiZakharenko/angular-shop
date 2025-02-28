@@ -14,10 +14,8 @@ Created a modern **e-commerce** shop application built with **Angular**. It uses
 
 ## ✨ Key Features:
 - **Dynamic Product Listing** – Displays products fetched from the API with dynamic updates.
-- **Add to Cart Functionality** – Users can add items to the cart and view them in the cart page.
 - **Product Filters** – Enables filtering products by categories and prices.
 - **Responsive Design** – Optimized for both mobile and desktop views.
-- **Interactive Checkout Process** – Provides a smooth experience for users during checkout.
 - **Error Handling** – Graceful error handling for API failures and empty states.
 
 ## 🌐 Demo Link:
