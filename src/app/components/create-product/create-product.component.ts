@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FocusDirective } from '../../directives/focus.directive';
 
 @Component({
   selector: 'app-create-product',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FocusDirective],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.scss',
 })
