@@ -8,6 +8,8 @@ import { IProduct } from './models/products';
 import { GlobalErrorComponent } from './components/global-error/global-error.component';
 import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
+import { ModalComponent } from "./components/modal/modal.component";
+import { CreateProductComponent } from "./components/create-product/create-product.component";
 
 @Component({
   selector: 'app-root',
@@ -18,8 +20,10 @@ import { FilterProductsPipe } from './pipes/filter-products.pipe';
     HttpClientModule,
     GlobalErrorComponent,
     FormsModule,
-    FilterProductsPipe
-  ],
+    FilterProductsPipe,
+    ModalComponent,
+    CreateProductComponent
+],
   providers: [ProductsService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
