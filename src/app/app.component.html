@@ -17,16 +17,23 @@
   <app-global-error></app-global-error>
 
   <div
-  *ngIf="products$ | async as products"
+  *ngIf="productsService.products"
   class="grid lg:grid-cols-3 gap-3 p-4 sm:grid-cols-1 md:grid-cols-2">
     <app-product
-    *ngFor="let product of products | filterProducts: term; let i = index"
+    *ngFor="let product of productsService.products | filterProducts: term; let i = index"
     [product]="product">
     </app-product>
   </div>
 
-  <app-modal title="create new product">
+  <app-modal
+  *ngIf="modalService.isVisible$ | async"
+  title="create new product">
     <app-create-product></app-create-product>
   </app-modal>
+
+  <button
+  class="rounded-full bg-red-700 text-white fixed right-5 bottom-5 py-2 px-4 shadow-lg hover:bg-red-800 transition cursor-pointer animate-pulse hover:scale-110 duration-300 ease-out"
+  (click)="modalService.open()"
+  >+</button>
 
 </div>
