@@ -3,6 +3,7 @@ import { IProduct } from '../models/products';
 
 @Pipe({
   name: 'filterProducts',
+  standalone: true
 })
 export class FilterProductsPipe implements PipeTransform {
   transform(products: IProduct[], search: string): IProduct[] {
