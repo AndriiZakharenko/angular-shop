@@ -22,7 +22,8 @@ import { CreateProductComponent } from "./components/create-product/create-produ
     FormsModule,
     FilterProductsPipe,
     ModalComponent,
-    CreateProductComponent
+    CreateProductComponent,
+
 ],
   providers: [ProductsService],
   templateUrl: './app.component.html',
