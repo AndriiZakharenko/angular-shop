@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterProductsPipe } from './pipes/filter-products.pipe';
 import { ModalComponent } from "./components/modal/modal.component";
 import { CreateProductComponent } from "./components/create-product/create-product.component";
+import { ModalService } from './services/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -31,16 +32,22 @@ import { CreateProductComponent } from "./components/create-product/create-produ
 })
 export class AppComponent implements OnInit {
   title = 'angular shop';
-  products$: Observable<IProduct[]> | undefined;
+  // products$: Observable<IProduct[]> | undefined;
   loading = false;
   term: string = '';
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    public productsService: ProductsService,
+    public modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
-    this.products$ = this.productsService
-      .getAll()
-      .pipe(tap(() => (this.loading = false)));
+    // this.products$ = this.productsService
+    //   .getAll()
+    //   .pipe(tap(() => (this.loading = false)));
+    this.productsService.getAll().subscribe(() => {
+      this.loading = false
+    })
   }
 }
